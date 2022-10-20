@@ -12,6 +12,7 @@ void print_numbers(void)
 
 	for (i = 48; i < 58; i++)
 	{
-		printf("%c", i);
+		_putchar("%c", i);
+		_putchar("\n");
 	}
 }
