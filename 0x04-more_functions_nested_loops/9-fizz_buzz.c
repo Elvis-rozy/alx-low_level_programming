@@ -1,12 +1,12 @@
-#include "main.h"
 #include <stdio.h>
+#include "main.h"
 
 /**
  * main - prints the numbers from 1 to 100
  * with Fizz in multiples of 3
  * Buzz in multiples of 5
  * and FizzBuzz in multiples of both
- * Return: 0
+ * Return: always 0
  */
 
 int main(void)
@@ -22,7 +22,7 @@ int main(void)
 		else if (a % 5 == 0)
 			printf("Buzz");
 		else
-			printf("%a%, a);
+			printf("%a", a);
 		if (a < 100)
 			printf(" ");
 	}
