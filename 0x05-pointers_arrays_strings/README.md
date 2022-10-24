@@ -29,4 +29,9 @@ Write a function that prints n elements of an array of integers, followed by a n
 mandatory
 Prototype: char *_strcpy(char *dest, char *src);
 Write a function that copies the string pointed to by src, including the terminating null byte (\0), to the buffer pointed to by dest.
-
+10. Great leaders are willing to sacrifice the numbers to save the people. Poor leaders sacrifice the people to save the numbers
+#advanced
+Write a function that convert a string to an integer.
+11. Don't hate the hacker, hate the code
+#advanced
+Create a program that generates random valid passwords for the program 101-crackme.
