@@ -18,10 +18,9 @@ int check(int e, int l)
 	}
 	else
 	{
-		return (check(e + 1, l));	
+		return (check(e + 1, l));
 	}
 }
-
 /**
  * is_prime_number - states if number is prime
  * @n:integer
