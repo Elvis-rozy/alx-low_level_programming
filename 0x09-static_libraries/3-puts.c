@@ -3,18 +3,18 @@
 
 /**
  * _puts - prints a string
- * @s: the string
+ * @str: the string
  *
  * Return: the length of the string
  */
-void _puts(char *s)
+void _puts(char *str)
 {
 	int i = 0;
 
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 	{
-		printf("%d",s[i]);
+		putchar(str[i]);
 		i++;
 	}
-	printf("\n");
+	putchar('\n');
 }
