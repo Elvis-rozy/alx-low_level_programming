@@ -6,8 +6,8 @@
  */
 int main(void)
 {
-	printf("\"\"At the end of the day,");
-	printf("my goal was to be the best hacker\"\"\n\"\t- Kevin Mitnick");
+	printf("\"\"At the end of the day, ");
+	printf("my goal was to be the best hacker\"\"\n\"\t- Kevin Mitnick\n");
 
 	return (0);
 }
