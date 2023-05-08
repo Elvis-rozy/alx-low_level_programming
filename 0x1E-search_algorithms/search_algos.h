@@ -22,7 +22,13 @@
          struct listint_s *next; 
  } listint_t; 
   
-  
+ typedef struct skiplist_s 
+ { 
+         int n; 
+         size_t index; 
+         struct skiplist_s *next; 
+         struct skiplist_s *express; 
+ } skiplist_t;
  /* 
   * Function that searches for a value in an 
   * array of integers using the Linear search algorithm 
@@ -64,7 +70,7 @@
   
  /* create_list - Creates a single linked list */ 
  listint_t *create_list(int *array, size_t size);
-
+skiplist_t *linear_skip(skiplist_t *list, int value);
 int advanced_binary(int *array, size_t size, int value);
 
  /* free_list - Deallocates a singly linked list */ 
