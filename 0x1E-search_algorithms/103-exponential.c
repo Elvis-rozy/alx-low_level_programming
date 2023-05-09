@@ -1,7 +1,7 @@
 #include "search_algos.h"
 
 /**
-  * _binary_search - Search for a value in a sorted array
+  * _binary_search - Searches for a value in a sorted array
   *                  of integers using binary search.
   * @array: A pointer to the first element of the array to search.
   * @left: The starting index of the [sub]array to search.
@@ -53,7 +53,7 @@ int _binary_search(int *array, size_t left, size_t right, int value)
   */
 int exponential_search(int *array, size_t size, int value)
 {
-	size_t a = 0, rim;
+	size_t i = 0, right;
 
 	if (array == NULL)
 		return (-1);
@@ -61,10 +61,10 @@ int exponential_search(int *array, size_t size, int value)
 	if (array[0] != value)
 	{
 		for (i = 1; i < size && array[i] <= value; i = i * 2)
-			printf("Value checked array[%ld] = [%d]\n", a, array[a]);
+			printf("Value checked array[%ld] = [%d]\n", i, array[i]);
 	}
 
-	rim = a < size ? a : size - 1;
-	printf("Value found between indexes [%ld] and [%ld]\n", a / 2, rim);
-	return (_binary_search(array, a / 2, rim, value));
+	right = i < size ? i : size - 1;
+	printf("Value found between indexes [%ld] and [%ld]\n", i / 2, right);
+	return (_binary_search(array, i / 2, right, value));
 }
