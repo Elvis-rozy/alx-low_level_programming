@@ -1,41 +1,45 @@
-#include "search_algos.h" 
-  
- /** 
-  * jump_list - searches for value in sorted linked list 
-  * uses the Jump search algorithm. 
-  * @list: Pointer to the head of the linked list 
-  * @size: Number of nodes in the linked list 
-  * @value: value to search for
-  * Return: Pointer to first node where value is located 
-  * if value is not present in head or if head is NULL, return NULL 
-  */ 
- listint_t *jump_list(listint_t *list, size_t size, int value) 
- { 
-         listint_t *down =  NULL, *top = NULL; 
-         size_t extent = 0; 
-  
-         if (list != NULL) 
-         { 
-                 down = list; 
-                 top = list; 
-                 while (top->next != NULL && top->index < size && top->n < value) 
-                 { 
-                         down = top; 
-                         extent += sqrt(size); 
-                         while (top->index < extent && top->next != NULL) 
-                                 top = top->next; 
-                         printf("Value checked at index [%lu] = [%d]\n", top->index, top->n); 
-                 } 
-                 printf("Value found between indexes [%lu] and [%lu]\n", 
-                        down->index, top->index); 
-                 while (down != NULL && down->index < size && down->index <= top->index) 
-                 { 
-                         printf("Value checked at index [%lu] = [%d]\n", down->index, down->n); 
-                         if (down->n == value) 
-                                 return (down); 
-                         down = down->next; 
-                 } 
-         } 
-         return (NULL); 
-  
- }
+#include "search_algos.h"
+
+/**
+ * jump_list - Searches for an algorithm in a sorted singly
+ *             linked list of integers using jump search.
+ * @list: A pointer to the  head of the linked list to search.
+ * @size: The number of nodes in the list.
+ * @value: The value to search for.
+ *
+ * Return: If the value is not present or the head of the list is NULL, NULL.
+ *         Otherwise, a pointer to the first node where the value is located.
+ *
+ * Description: Prints a value every time it is compared in the list.
+ *              Uses the square root of the list size as the jump step.
+ */
+listint_t *jump_list(listint_t *list, size_t size, int value)
+{
+	size_t step, step_size;
+	listint_t *node, *jump;
+
+	if (list == NULL || size == 0)
+		return (NULL);
+
+	step = 0;
+	step_size = sqrt(size);
+	for (node = jump = list; jump->index + 1 < size && jump->n < value;)
+	{
+		node = jump;
+		for (step += step_size; jump->index < step; jump = jump->next)
+		{
+			if (jump->index + 1 == size)
+				break;
+		}
+		printf("Value checked at index [%ld] = [%d]\n", jump->index, jump->n);
+	}
+
+	printf("Value found between indexes [%ld] and [%ld]\n",
+			node->index, jump->index);
+
+	for (; node->index < jump->index && node->n < value; node = node->next)
+		printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
+	printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
+
+	return (node->n == value ? node : NULL);
+}
