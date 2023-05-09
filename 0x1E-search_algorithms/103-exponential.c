@@ -60,11 +60,11 @@ int exponential_search(int *array, size_t size, int value)
 
 	if (array[0] != value)
 	{
-		for (a = 1; a < size && array[a] <= value; a = a * 2)
+		for (i = 1; i < size && array[i] <= value; i = i * 2)
 			printf("Value checked array[%ld] = [%d]\n", a, array[a]);
 	}
 
-	rim = i < size ? a : size - 1;
+	rim = a < size ? a : size - 1;
 	printf("Value found between indexes [%ld] and [%ld]\n", a / 2, rim);
 	return (_binary_search(array, a / 2, rim, value));
 }
